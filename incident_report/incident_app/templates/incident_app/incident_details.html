@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<div class='container jumbotron'>
+    <h3>Here are the details of this Incident</h3>
+    <h3>Uploaded by - {{incidents.user}}</h3>
+    <h3>Type of Incident - {{incidents.category}}</h3>
+    <h3>City - {{incidents.address}}</h3>
+    <h3>Longitude - {{incidents.longitude}}</h3>  
+    <h3>Latitude - {{incidents.latitude}}</h3>
+    <h3>Description - {{incidents.description}}</h3>
+    <h3>Time of Documentation - {{incidents.timestamp}}</h3>
+    {% if incidents.images %}
+    <img src="{{incidents.images.url}}" alt="Incident Image">
+    {% else %}
+    <h4>No Imag was uploaded</h4>
+    {% endif %}
+</div>
+{% endblock %}

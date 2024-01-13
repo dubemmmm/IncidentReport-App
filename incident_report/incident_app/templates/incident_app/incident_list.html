@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<div class='container jumbotron'>
+<h2>Incident List</h2>
+  <form method="get">
+    <label for="category">Select Category:</label>
+    <select name="category" id="category">
+      <option value="">All Categories</option>
+      <option value="Accident">Accident</option>
+      <option value="Fighting">Fighting</option>
+      <option value="Fighting">Rioting</option>
+    </select>
+    <button type="submit">Filter</button>
+  </form>
+  {% for incident in incident_list %}
+    <h2><a href={% url 'reports:details' pk=incident.pk %}>{{ incident.category }} at {{ incident.address }}</a></h2>
+    <!-- Add other details as needed -->
+  {% endfor %}
+</div>
+{% endblock %}
